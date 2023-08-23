@@ -1,6 +1,16 @@
-module.exports = function(api) {
+// eslint-disable-next-line no-undef
+module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['babel-preset-expo'],
+    presets: [
+      [
+        "babel-preset-expo",
+        {
+          targets: {
+            node: "current",
+          },
+        },
+      ],
+    ],
   };
 };
