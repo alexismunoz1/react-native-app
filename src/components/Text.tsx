@@ -27,7 +27,7 @@ interface TextProps {
   fontSize?: keyof typeof theme.fontSizes;
   fontWeight?: keyof typeof theme.fontWeights;
   style?: object;
-  children: string;
+  children: string | number;
 }
 
 export const Text = ({
