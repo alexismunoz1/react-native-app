@@ -1,19 +1,12 @@
 import { Text } from "./Text";
-import { Pressable, View } from "react-native";
 import { Formik } from "formik";
-import { FormikTextInput } from "./FormikTextInput";
+import { SingInForm } from "./SingInForm";
+import * as yup from "yup";
 
-const SingInForm = ({ onSubmit }: { onSubmit: () => void }) => {
-  return (
-    <View>
-      <FormikTextInput name='username' placeholder='Username' />
-      <FormikTextInput name='password' placeholder='Password' secureTextEntry />
-      <Pressable onPress={onSubmit}>
-        <Text>Submit</Text>
-      </Pressable>
-    </View>
-  );
-};
+const validationSchema = yup.object({
+  username: yup.string().required("Username is required"),
+  password: yup.string().min(8, "Password is too short").required("Password is required"),
+});
 
 export const SignIn = () => {
   return (
@@ -21,6 +14,7 @@ export const SignIn = () => {
       <Text>SignIn</Text>
       <Formik
         initialValues={{ username: "", password: "" }}
+        validationSchema={validationSchema}
         onSubmit={(values) => console.log(values)}>
         {({ handleSubmit }) => <SingInForm onSubmit={handleSubmit} />}
       </Formik>

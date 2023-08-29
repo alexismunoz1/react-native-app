@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, TouchableWithoutFeedback } from "react-native";
+import { View, StyleSheet, ScrollView, Pressable } from "react-native";
 import Constants from "expo-constants";
 import { Text } from "./Text";
 import { Link } from "react-router-native";
@@ -19,20 +19,20 @@ export const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
-        <TouchableWithoutFeedback>
+        <Pressable>
           <Link to='/'>
             <Text fontSize='subheading' fontWeight='bold' style={styles.text}>
               Repositories
             </Text>
           </Link>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback>
+        </Pressable>
+        <Pressable>
           <Link to='/signin'>
             <Text fontSize='subheading' fontWeight='bold' style={styles.text}>
               Sing In
             </Text>
           </Link>
-        </TouchableWithoutFeedback>
+        </Pressable>
       </ScrollView>
     </View>
   );
