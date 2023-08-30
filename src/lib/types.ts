@@ -1,32 +1,19 @@
-export interface Repository {
-  edges: Edge[];
-  pageInfo: PageInfo;
-  totalCount: number;
+interface Repository {
+  node: {
+    id: string;
+    fullName: string;
+    description: string;
+    language: string;
+    stargazersCount: number;
+    forksCount: number;
+    reviewCount: number;
+    ratingAverage: number;
+    ownerAvatarUrl: string;
+  };
 }
 
-export interface Edge {
-  cursor: string;
-  node: Node;
-}
-
-export interface Node {
-  createdAt: Date;
-  description: string;
-  forksCount: number;
-  fullName: string;
-  id: string;
-  language: string;
-  name: string;
-  ownerAvatarUrl: string;
-  ownerName: string;
-  ratingAverage: number;
-  reviewCount: number;
-  stargazersCount: number;
-}
-
-export interface PageInfo {
-  endCursor: string;
-  hasNextPage: boolean;
-  hasPreviousPage: boolean;
-  startCursor: string;
+export interface ApiRepositoryResponse {
+  repositories: {
+    edges: Repository[];
+  };
 }

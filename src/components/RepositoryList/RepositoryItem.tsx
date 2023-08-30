@@ -1,6 +1,6 @@
 import { View, Image, StyleSheet } from "react-native";
-import { Text } from "./Text";
-import { theme } from "../theme";
+import { Text } from "../Text";
+import { theme } from "../../theme";
 
 const styles = StyleSheet.create({
   containter: {
@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  id: string;
   fullName: string;
   description: string;
   language: string;

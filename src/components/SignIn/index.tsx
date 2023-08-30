@@ -1,4 +1,4 @@
-import { Text } from "./Text";
+import { Text } from "../Text";
 import { Formik } from "formik";
 import { SingInForm } from "./SingInForm";
 import * as yup from "yup";

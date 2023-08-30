@@ -1,6 +1,6 @@
 import { Pressable, View } from "react-native";
-import { FormikTextInput } from "./FormikTextInput";
-import { Text } from "./Text";
+import { FormikTextInput } from "../FormikTextInput";
+import { Text } from "../Text";
 
 export const SingInForm = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
