@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphql/queries";
-import { ApiRepositoryResponse } from "../lib/types";
+import type { ApiRepositoryResponse } from "../lib/types";
 
 export const useRepositories = () => {
   const { data, error, loading } = useQuery<ApiRepositoryResponse>(GET_REPOSITORIES, {
