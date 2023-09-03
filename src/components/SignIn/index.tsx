@@ -2,7 +2,8 @@ import { Text } from "../Text";
 import { Formik } from "formik";
 import { SingInForm } from "./SingInForm";
 import * as yup from "yup";
-import { useSingIn } from "../../hooks/useSignIn";
+import { useSignIn } from "../../hooks/useSignIn";
+import { useNavigate } from "react-router-native";
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
@@ -10,15 +11,16 @@ const validationSchema = yup.object({
 });
 
 export const SignIn = () => {
-  const [singIn] = useSingIn();
+  const [signIn] = useSignIn();
+  const navigate = useNavigate();
 
-  const onSubmit = async (values) => {
+  const handleSubmit = async (values: { username: string; password: string }) => {
     const { username, password } = values;
     try {
-      const { data } = await singIn({ username, password });
-      console.log({ data });
+      await signIn({ username, password });
+      navigate("/repositories");
     } catch (error) {
-      console.log({ error });
+      alert(error.message);
     }
   };
 
@@ -28,7 +30,7 @@ export const SignIn = () => {
       <Formik
         initialValues={{ username: "", password: "" }}
         validationSchema={validationSchema}
-        onSubmit={onSubmit}>
+        onSubmit={handleSubmit}>
         {({ handleSubmit }) => <SingInForm onSubmit={handleSubmit} />}
       </Formik>
     </>
