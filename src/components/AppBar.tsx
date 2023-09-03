@@ -2,6 +2,8 @@ import { View, StyleSheet, ScrollView, Pressable } from "react-native";
 import Constants from "expo-constants";
 import { Text } from "./Text";
 import { Link } from "react-router-native";
+import { useMe } from "../hooks/useMe";
+import { useSignOut } from "../hooks/useSignOut";
 
 const styles = StyleSheet.create({
   container: {
@@ -16,6 +18,9 @@ const styles = StyleSheet.create({
 });
 
 export const AppBar = () => {
+  const { data } = useMe();
+  const { signOut } = useSignOut();
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
@@ -26,13 +31,21 @@ export const AppBar = () => {
             </Text>
           </Link>
         </Pressable>
-        <Pressable>
-          <Link to='/signin'>
+        {data?.me ? (
+          <Pressable onPress={() => signOut()}>
             <Text fontSize='subheading' fontWeight='bold' style={styles.text}>
-              Sing In
+              Sign out
             </Text>
-          </Link>
-        </Pressable>
+          </Pressable>
+        ) : (
+          <Pressable>
+            <Link to='/signin'>
+              <Text fontSize='subheading' fontWeight='bold' style={styles.text}>
+                Sing In
+              </Text>
+            </Link>
+          </Pressable>
+        )}
       </ScrollView>
     </View>
   );

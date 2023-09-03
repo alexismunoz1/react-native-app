@@ -6,7 +6,7 @@ import { useApolloClient } from "@apollo/client";
 export const useSignIn = () => {
   const authStorage = useAuthStorage();
   const apolloClient = useApolloClient();
-  const [signInMutation] = useMutation(AUTH);
+  const [signInMutation, result] = useMutation(AUTH);
 
   const signIn = async ({
     username,
@@ -23,5 +23,5 @@ export const useSignIn = () => {
     apolloClient.resetStore();
   };
 
-  return [signIn];
+  return { signIn, result };
 };

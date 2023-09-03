@@ -11,7 +11,7 @@ const validationSchema = yup.object({
 });
 
 export const SignIn = () => {
-  const [signIn] = useSignIn();
+  const { signIn } = useSignIn();
   const navigate = useNavigate();
 
   const handleSubmit = async (values: { username: string; password: string }) => {

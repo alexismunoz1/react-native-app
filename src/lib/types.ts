@@ -17,3 +17,10 @@ export interface ApiRepositoryResponse {
     edges: Repository[];
   };
 }
+
+export interface ApiResponseMe {
+  me: {
+    id: string;
+    username: string;
+  };
+}
