@@ -1,20 +1,20 @@
-interface Repository {
-  node: {
-    id: string;
-    fullName: string;
-    description: string;
-    language: string;
-    stargazersCount: number;
-    forksCount: number;
-    reviewCount: number;
-    ratingAverage: number;
-    ownerAvatarUrl: string;
-  };
+export interface Repository {
+  id: string;
+  fullName: string;
+  description: string;
+  language: string;
+  stargazersCount: number;
+  forksCount: number;
+  reviewCount: number;
+  ratingAverage: number;
+  ownerAvatarUrl: string;
 }
 
-export interface ApiRepositoryResponse {
+export interface ApiResponseRepository {
   repositories: {
-    edges: Repository[];
+    edges: {
+      node: Repository;
+    }[];
   };
 }
 

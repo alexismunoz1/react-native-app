@@ -1,17 +1,22 @@
 import { View, Image, StyleSheet } from "react-native";
 import { Text } from "../Text";
 import { theme } from "../../theme";
+import { TextStatsCount } from "./TextStatsCount";
 
 const styles = StyleSheet.create({
   containter: {
     backgroundColor: "white",
     padding: 15,
     borderRadius: 5,
-    marginBottom: 10,
+    marginBottom: 12,
     marginHorizontal: 12,
   },
   imageAdnTextContainer: {
     flexDirection: "row",
+  },
+  containerUserInfo: {
+    flex: 1,
+    gap: 8,
   },
   image: {
     width: 50,
@@ -25,16 +30,12 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 4,
     marginRight: "auto",
-    marginTop: 5,
   },
   statsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 15,
     paddingHorizontal: 10,
-  },
-  statsContainerText: {
-    alignItems: "center",
   },
 });
 
@@ -59,44 +60,23 @@ export const RepositoryItem = ({
   ratingAverage,
   ownerAvatarUrl,
 }: Props) => {
-  const formatCount = (count) => {
-    if (count >= 1000) {
-      const formattedCount = (count / 1000).toFixed(1);
-      return `${formattedCount}k`;
-    }
-
-    return count.toString();
-  };
-
   return (
-    <View style={styles.containter}>
+    <View testID='repositoryItem' style={styles.containter}>
       <View style={styles.imageAdnTextContainer}>
         <Image source={{ uri: ownerAvatarUrl }} style={styles.image} />
-        <View style={{ flex: 1 }}>
+        <View style={styles.containerUserInfo}>
           <Text fontWeight='bold' fontSize='subheading'>
             {fullName}
           </Text>
-          <Text style={{ marginTop: 4 }}>{description}</Text>
+          <Text>{description}</Text>
           <Text style={styles.laguage}>{language}</Text>
         </View>
       </View>
       <View style={styles.statsContainer}>
-        <View style={styles.statsContainerText}>
-          <Text fontWeight='bold'>{formatCount(stargazersCount)}</Text>
-          <Text>Stars</Text>
-        </View>
-        <View style={styles.statsContainerText}>
-          <Text fontWeight='bold'>{formatCount(forksCount)}</Text>
-          <Text>Forks</Text>
-        </View>
-        <View style={styles.statsContainerText}>
-          <Text fontWeight='bold'>{formatCount(reviewCount)}</Text>
-          <Text>Reviews</Text>
-        </View>
-        <View style={styles.statsContainerText}>
-          <Text fontWeight='bold'>{formatCount(ratingAverage)}</Text>
-          <Text>Rating</Text>
-        </View>
+        <TextStatsCount stat={stargazersCount} text={"Stars"} />
+        <TextStatsCount stat={forksCount} text={"Forks"} />
+        <TextStatsCount stat={reviewCount} text={"Reviews"} />
+        <TextStatsCount stat={ratingAverage} text={"Rating"} />
       </View>
     </View>
   );

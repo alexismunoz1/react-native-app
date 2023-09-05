@@ -1,9 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORIES } from "../graphql/queries";
-import type { ApiRepositoryResponse } from "../lib/types";
+import type { ApiResponseRepository } from "../lib/types";
 
 export const useRepositories = () => {
-  const { data, error, loading } = useQuery<ApiRepositoryResponse>(GET_REPOSITORIES, {
+  const { data, error, loading } = useQuery<ApiResponseRepository>(GET_REPOSITORIES, {
     fetchPolicy: "cache-and-network",
   });
 
