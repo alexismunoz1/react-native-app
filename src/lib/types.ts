@@ -25,3 +25,13 @@ export interface ApiResponseMe {
     username: string;
   };
 }
+
+export interface Review {
+  id: string;
+  text: string;
+  rating: number;
+  user: {
+    id: string;
+    username: string;
+  };
+}

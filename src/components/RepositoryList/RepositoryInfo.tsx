@@ -51,11 +51,11 @@ const styles = StyleSheet.create({
 });
 
 interface Props {
-  viewButton?: boolean;
   repository: Repository;
+  viewButton?: boolean;
 }
 
-export const RepositoryItem = ({ viewButton, repository }: Props) => {
+export const RepositoryInfo = ({ repository, viewButton }: Props) => {
   const {
     id,
     fullName,
@@ -94,11 +94,9 @@ export const RepositoryItem = ({ viewButton, repository }: Props) => {
           <TextStatsCount stat={ratingAverage} text={"Rating"} />
         </View>
         {viewButton && (
-          <View>
-            <Pressable onPress={navigateToRepository}>
-              <Text style={styles.button}>Open in GitHub</Text>
-            </Pressable>
-          </View>
+          <Pressable onPress={navigateToRepository}>
+            <Text style={styles.button}>Open in GitHub</Text>
+          </Pressable>
         )}
       </View>
     </Link>

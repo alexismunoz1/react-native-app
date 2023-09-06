@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import { RepositoryItem } from "./RepositoryItem";
+import { RepositoryInfo } from "./RepositoryInfo";
 import { useRepositories } from "../../hooks/useRepositories";
 import { Text } from "../Text";
 import type { Repository } from "../../lib/types";
@@ -21,7 +21,7 @@ interface RepositoryListProps {
 
 export const RepositoryListContainer = ({ repositories }: RepositoryListProps) => {
   const renderRepositoryItem = ({ item: repo }: { item: Repository }) => (
-    <RepositoryItem key={repo.id} repository={repo} />
+    <RepositoryInfo key={repo.id} repository={repo} />
   );
 
   const ItemSeparator = () => {
