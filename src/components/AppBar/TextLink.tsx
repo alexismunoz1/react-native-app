@@ -11,7 +11,6 @@ interface Props {
 const styles = StyleSheet.create({
   text: {
     color: "white",
-    paddingRight: 15,
   },
 });
 

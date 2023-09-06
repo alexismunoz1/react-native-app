@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import Constants from "expo-constants";
 import { useMe } from "../../hooks/useMe";
 import { useSignOut } from "../../hooks/useSignOut";
@@ -6,9 +6,12 @@ import { TextLink } from "./TextLink";
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight + 12,
+    paddingTop: Constants.statusBarHeight + 20,
     backgroundColor: "#24292e",
     padding: 15,
+  },
+  content: {
+    gap: 15,
   },
 });
 
@@ -18,7 +21,7 @@ export const AppBar = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView horizontal>
+      <ScrollView horizontal contentContainerStyle={styles.content}>
         <TextLink to='/'>Repositories</TextLink>
         {data?.me ? (
           <TextLink onPress={signOut}>Sign Out</TextLink>
