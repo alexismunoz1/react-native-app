@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Pressable } from "react-native";
+import { View, StyleSheet, ScrollView } from "react-native";
 import Constants from "expo-constants";
 import { useMe } from "../../hooks/useMe";
 import { useSignOut } from "../../hooks/useSignOut";
@@ -19,17 +19,11 @@ export const AppBar = () => {
   return (
     <View style={styles.container}>
       <ScrollView horizontal>
-        <Pressable>
-          <TextLink to='/'>Repositories</TextLink>
-        </Pressable>
+        <TextLink to='/'>Repositories</TextLink>
         {data?.me ? (
-          <Pressable onPress={signOut}>
-            <TextLink>Sign Out</TextLink>
-          </Pressable>
+          <TextLink onPress={signOut}>Sign Out</TextLink>
         ) : (
-          <Pressable>
-            <TextLink to='/signin'>Sign In</TextLink>
-          </Pressable>
+          <TextLink to='/signin'>Sign In</TextLink>
         )}
       </ScrollView>
     </View>

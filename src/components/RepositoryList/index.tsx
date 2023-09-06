@@ -11,14 +11,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export const RepositoryListContainer = ({
-  repositories,
-}: {
+interface RepositoryListProps {
   repositories: Repository[];
-}) => {
-  const renderRepositoryItem = ({ item }) => <RepositoryItem key={item.id} {...item} />;
+}
 
-  console.log(repositories);
+export const RepositoryListContainer = ({ repositories }: RepositoryListProps) => {
+  const renderRepositoryItem = ({ item }) => <RepositoryItem key={item.id} {...item} />;
 
   return (
     <FlatList

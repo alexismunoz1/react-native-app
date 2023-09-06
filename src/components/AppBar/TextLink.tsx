@@ -5,6 +5,7 @@ import { Link } from "react-router-native";
 interface Props {
   children: string;
   to?: string;
+  onPress?: () => Promise<void>;
 }
 
 const styles = StyleSheet.create({
@@ -14,9 +15,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export const TextLink = ({ children, to }: Props) => {
+export const TextLink = ({ children, to, onPress }: Props) => {
   return (
-    <Link to={to}>
+    <Link to={to} onPress={onPress}>
       <Text fontSize='subheading' fontWeight='bold' style={styles.text}>
         {children}
       </Text>

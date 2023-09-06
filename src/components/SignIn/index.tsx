@@ -1,9 +1,10 @@
-import { Text } from "../Text";
+import { Pressable } from "react-native";
+import { useNavigate } from "react-router-native";
 import { Formik } from "formik";
-import { SingInForm } from "./SingInForm";
 import * as yup from "yup";
 import { useSignIn } from "../../hooks/useSignIn";
-import { useNavigate } from "react-router-native";
+import { FormikTextInput } from "./FormikTextInput";
+import { Text } from "../Text";
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
@@ -13,10 +14,11 @@ const validationSchema = yup.object({
 export const SignIn = () => {
   const { signIn } = useSignIn();
   const navigate = useNavigate();
+  const initialValues = { username: "", password: "" };
 
   const handleSubmit = async (values: { username: string; password: string }) => {
-    const { username, password } = values;
     try {
+      const { username, password } = values;
       await signIn({ username, password });
       navigate("/repositories");
     } catch (error) {
@@ -28,10 +30,18 @@ export const SignIn = () => {
     <>
       <Text>SignIn</Text>
       <Formik
-        initialValues={{ username: "", password: "" }}
+        initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}>
-        {({ handleSubmit }) => <SingInForm onSubmit={handleSubmit} />}
+        {({ submitForm }) => (
+          <>
+            <FormikTextInput name='username' placeholder='Username' />
+            <FormikTextInput name='password' placeholder='Password' secureTextEntry />
+            <Pressable onPress={submitForm}>
+              <Text>Submit</Text>
+            </Pressable>
+          </>
+        )}
       </Formik>
     </>
   );
