@@ -23,12 +23,18 @@ export const AppBar = () => {
     <View style={styles.container}>
       <ScrollView horizontal contentContainerStyle={styles.content}>
         <TextLink to='/'>Repositories</TextLink>
-        {!data?.me ? (
-          <TextLink to='/signin'>Sign In</TextLink>
-        ) : (
+        {!data?.me && (
+          <>
+            <TextLink to='/signin'>Sign In</TextLink>
+            <TextLink to='/signup'>Sign Up</TextLink>
+          </>
+        )}
+        {data?.me && (
           <>
             <TextLink to='/review'>Create a review</TextLink>
-            <TextLink onPress={signOut}>Sign Out</TextLink>
+            <TextLink to='/signin' onPress={signOut}>
+              Sign Out
+            </TextLink>
           </>
         )}
       </ScrollView>

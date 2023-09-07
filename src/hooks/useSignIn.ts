@@ -20,12 +20,16 @@ export const useSignIn = () => {
   const [signInMutation, result] = useMutation<ApiResponse>(AUTH);
 
   const signIn = async ({ username, password }: SignInProps) => {
-    const { data } = await signInMutation({
-      variables: { username, password },
-    });
+    try {
+      const { data } = await signInMutation({
+        variables: { username, password },
+      });
 
-    await authStorage.setAccessToken(data.authenticate.accessToken);
-    apolloClient.resetStore();
+      await authStorage.setAccessToken(data.authenticate.accessToken);
+      apolloClient.resetStore();
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return { signIn, result };

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 const validationSchema = yup.object({
   username: yup.string().required("Username is required"),
-  password: yup.string().min(5, "Password is too short").required("Password is required"),
+  password: yup.string().required("Password is required"),
 });
 
 export const SignIn = () => {
@@ -33,13 +33,9 @@ export const SignIn = () => {
   const initialValues = { username: "", password: "" };
 
   const handleSubmit = async (values: { username: string; password: string }) => {
-    try {
-      const { username, password } = values;
-      await signIn({ username, password });
-      navigate("/repositories");
-    } catch (error) {
-      alert(error.message);
-    }
+    const { username, password } = values;
+    await signIn({ username, password });
+    navigate("/repositories");
   };
 
   return (
