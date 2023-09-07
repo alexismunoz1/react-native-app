@@ -1,10 +1,11 @@
-import { View, Image, StyleSheet, Pressable } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import { Link } from "react-router-native";
-import { Text } from "../Text";
-import { theme } from "../../theme";
-import { TextStatsCount } from "./TextStatsCount";
 import * as Linking from "expo-linking";
-import { Repository } from "../../lib/types";
+import { Text } from "../Text";
+import { TextStatsCount } from "./TextStatsCount";
+import { theme } from "../../theme";
+import type { Repository } from "../../types";
+import { MainButton } from "../MainButton";
 
 const styles = StyleSheet.create({
   containter: {
@@ -37,16 +38,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 15,
     paddingHorizontal: 10,
-  },
-  button: {
-    color: "white",
-    backgroundColor: theme.colors.primary,
-    padding: 12,
-    borderRadius: 4,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 16,
-    marginTop: 15,
   },
 });
 
@@ -94,9 +85,9 @@ export const RepositoryInfo = ({ repository, viewButton }: Props) => {
           <TextStatsCount stat={ratingAverage} text={"Rating"} />
         </View>
         {viewButton && (
-          <Pressable onPress={navigateToRepository}>
-            <Text style={styles.button}>Open in GitHub</Text>
-          </Pressable>
+          <MainButton onPress={navigateToRepository} style={{ marginTop: 15 }}>
+            Open in GitHub
+          </MainButton>
         )}
       </View>
     </Link>

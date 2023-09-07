@@ -6,8 +6,11 @@ const styles = StyleSheet.create({
   textInput: {
     height: 50,
     borderColor: "000",
-    borderWidth: 2,
-    borderRadius: 6,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    fontSize: 16,
   },
   errorText: {
     marginTop: 5,

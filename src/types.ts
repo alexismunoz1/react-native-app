@@ -11,21 +11,6 @@ export interface Repository {
   url: string;
 }
 
-export interface ApiResponseRepository {
-  repositories: {
-    edges: {
-      node: Repository;
-    }[];
-  };
-}
-
-export interface ApiResponseMe {
-  me: {
-    id: string;
-    username: string;
-  };
-}
-
 export interface Review {
   id: string;
   text: string;

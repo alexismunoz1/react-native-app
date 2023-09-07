@@ -1,9 +1,15 @@
 import { useQuery } from "@apollo/client";
 import { GET_ME } from "../graphql/queries";
-import { ApiResponseMe } from "../lib/types";
+
+interface ApiResponse {
+  me: {
+    id: string;
+    username: string;
+  };
+}
 
 export const useMe = () => {
-  const { data } = useQuery<ApiResponseMe>(GET_ME, {
+  const { data } = useQuery<ApiResponse>(GET_ME, {
     fetchPolicy: "cache-and-network",
   });
 

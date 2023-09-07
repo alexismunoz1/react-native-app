@@ -2,7 +2,7 @@ import { FlatList, StyleSheet, View } from "react-native";
 import { RepositoryInfo } from "./RepositoryInfo";
 import { useRepositories } from "../../hooks/useRepositories";
 import { Text } from "../Text";
-import type { Repository } from "../../lib/types";
+import type { Repository } from "../../types";
 
 const styles = StyleSheet.create({
   container: {
