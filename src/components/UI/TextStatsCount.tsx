@@ -1,5 +1,4 @@
-import { Text } from "../Text";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
 interface Props {
   stat: number;
@@ -18,7 +17,7 @@ export const TextStatsCount = ({ stat, text }: Props) => {
 
   return (
     <View style={{ alignItems: "center" }}>
-      <Text fontWeight='bold'>{formatCount(stat)}</Text>
+      <Text style={{ fontWeight: "bold" }}>{formatCount(stat)}</Text>
       <Text>{text}</Text>
     </View>
   );

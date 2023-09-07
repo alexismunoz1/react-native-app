@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { Text } from "../Text";
+import { Text } from "../UI";
 import { Link } from "react-router-native";
 
 interface Props {

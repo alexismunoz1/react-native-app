@@ -1,6 +1,6 @@
 import { View, StyleSheet } from "react-native";
 import { format } from "date-fns";
-import { Text } from "../Text";
+import { Text } from "../UI";
 import { theme } from "../../theme";
 import type { Review } from "../../types";
 
@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 14,
     backgroundColor: "white",
-    marginTop: 12,
     marginHorizontal: 10,
+    marginBottom: 10,
     borderRadius: 5,
   },
   ratingCont: {

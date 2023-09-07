@@ -1,11 +1,10 @@
 import { StyleSheet, TextInput } from "react-native";
 import { useField } from "formik";
-import { Text } from "../Text";
+import { Text } from "./MainText";
 
 const styles = StyleSheet.create({
   textInput: {
-    height: 50,
-    borderColor: "000",
+    borderColor: "#000",
     borderWidth: 1,
     borderRadius: 5,
     paddingVertical: 10,

@@ -1,11 +1,9 @@
 import { View, Image, StyleSheet } from "react-native";
 import { Link } from "react-router-native";
 import * as Linking from "expo-linking";
-import { Text } from "../Text";
-import { TextStatsCount } from "./TextStatsCount";
+import { Text, MainButton, TextStatsCount } from "../UI";
 import { theme } from "../../theme";
 import type { Repository } from "../../types";
-import { MainButton } from "../MainButton";
 
 const styles = StyleSheet.create({
   containter: {
@@ -43,10 +41,11 @@ const styles = StyleSheet.create({
 
 interface Props {
   repository: Repository;
+  style?: object;
   viewButton?: boolean;
 }
 
-export const RepositoryInfo = ({ repository, viewButton }: Props) => {
+export const RepositoryInfo = ({ repository, viewButton, style }: Props) => {
   const {
     id,
     fullName,
@@ -67,7 +66,7 @@ export const RepositoryInfo = ({ repository, viewButton }: Props) => {
 
   return (
     <Link to={`/repository/${id}`}>
-      <View testID='repositoryItem' style={styles.containter}>
+      <View testID='repositoryItem' style={[styles.containter, style]}>
         <View style={styles.imageAdnTextContainer}>
           <Image source={{ uri: ownerAvatarUrl }} style={styles.image} />
           <View style={styles.containerUserInfo}>
