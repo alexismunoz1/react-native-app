@@ -9,7 +9,7 @@ import { MainButton, FormikTextInput, Title } from "../UI";
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
-    paddingVertical: "20%",
+    paddingVertical: "10%",
     backgroundColor: "white",
     height: "100%",
   },

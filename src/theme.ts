@@ -6,6 +6,7 @@ export const theme = {
     textSecondary: "#586069",
     primary: "#0366d6",
     danger: "#d73a4a",
+    red: "#cb2431",
   },
   fontSizes: {
     body: 14,

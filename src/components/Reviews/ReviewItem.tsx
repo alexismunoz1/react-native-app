@@ -34,7 +34,7 @@ interface Props {
 }
 
 export const ReviewItem = ({ review }: Props) => {
-  const { rating, text, createdAt, user } = review;
+  const { rating, text, createdAt, user, repository } = review;
   const formattedDate = format(new Date(createdAt), "MMMM dd, yyyy");
 
   return (
@@ -46,7 +46,7 @@ export const ReviewItem = ({ review }: Props) => {
       </View>
       <View style={styles.infoCont}>
         <Text fontWeight='bold' fontSize='subheading'>
-          {user.username}
+          {repository ? repository.fullName : user.username}
         </Text>
         <Text fontSize='body' color='textSecondary'>
           {formattedDate}
