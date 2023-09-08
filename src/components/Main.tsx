@@ -4,13 +4,15 @@ import { AppBar } from "./AppBar";
 import { SignIn } from "./SignIn";
 import { RepositoryList } from "./RepositoryList";
 import { SingleRepository } from "./RepositoryList/SingleRepository";
-import { CreateReview } from "./RepositoryReview";
+import { CreateReview } from "./Reviews/CreateReview";
 import { SignUp } from "./SignUp";
+import { MyReviews } from "./Reviews/MyReviews";
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#e1e4e8",
     flexShrink: 1,
+    height: "100%",
   },
 });
 
@@ -25,6 +27,7 @@ export const Main = () => {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/repository/:id' element={<SingleRepository />} />
         <Route path='/review' element={<CreateReview />} />
+        <Route path='/myreviews' element={<MyReviews />} />
       </Routes>
     </View>
   );

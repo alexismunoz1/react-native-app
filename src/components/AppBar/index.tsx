@@ -1,7 +1,7 @@
 import { StyleSheet, ScrollView, View } from "react-native";
 import Constants from "expo-constants";
-import { useMe } from "../../hooks/useMe";
 import { useSignOut } from "../../hooks/useSignOut";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { TextLink } from "./TextLink";
 
 const styles = StyleSheet.create({
@@ -16,22 +16,23 @@ const styles = StyleSheet.create({
 });
 
 export const AppBar = () => {
-  const { data } = useMe();
+  const { user } = useCurrentUser();
   const { signOut } = useSignOut();
 
   return (
     <View style={styles.container}>
       <ScrollView horizontal contentContainerStyle={styles.content}>
         <TextLink to='/'>Repositories</TextLink>
-        {!data?.me && (
+        {!user?.username && (
           <>
             <TextLink to='/signin'>Sign In</TextLink>
             <TextLink to='/signup'>Sign Up</TextLink>
           </>
         )}
-        {data?.me && (
+        {user?.username && (
           <>
             <TextLink to='/review'>Create a review</TextLink>
+            <TextLink to='/myreviews'>My reviews</TextLink>
             <TextLink to='/signin' onPress={signOut}>
               Sign Out
             </TextLink>

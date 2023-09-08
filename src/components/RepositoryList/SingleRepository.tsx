@@ -1,7 +1,7 @@
 import { FlatList } from "react-native";
 import { useParams } from "react-router-native";
-import { Text } from "../UI";
-import { ReviewItem } from "./ReviewItem";
+import { Text, ItemSeparator } from "../UI";
+import { ReviewItem } from "../Reviews/ReviewItem";
 import { RepositoryInfo } from "./RepositoryInfo";
 import { useGetReviews } from "../../hooks/useGetReviews";
 import { useGetRepository } from "../../hooks/useGetRepository";
@@ -23,6 +23,7 @@ export const SingleRepository = () => {
       data={reviews}
       keyExtractor={({ id }) => id}
       renderItem={renderReviewItem}
+      ItemSeparatorComponent={() => <ItemSeparator height={10} />}
       ListHeaderComponent={() => (
         <RepositoryInfo style={{ marginBottom: 10 }} repository={data} viewButton />
       )}

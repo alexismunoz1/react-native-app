@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: "20%",
     backgroundColor: "white",
+    height: "100%",
   },
   formContainer: {
     gap: 10,

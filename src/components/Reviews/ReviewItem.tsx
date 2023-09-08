@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 14,
     backgroundColor: "white",
-    marginHorizontal: 10,
-    marginBottom: 10,
     borderRadius: 5,
   },
   ratingCont: {

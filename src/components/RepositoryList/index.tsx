@@ -5,14 +5,12 @@ import { useRepositories, orderByValue } from "../../hooks/useRepositories";
 import type { Repository } from "../../types";
 import { Picker } from "@react-native-picker/picker";
 import { useDebounce } from "use-debounce";
+import { ItemSeparator } from "../UI";
 
 const styles = StyleSheet.create({
   container: {
     padding: 12,
     flexShrink: 1,
-  },
-  ItemSeparator: {
-    height: 12,
   },
   pickerSearchContainer: {
     padding: 10,
@@ -45,15 +43,11 @@ export const RepositoryListContainer = ({ repositories }: RepositoryListProps) =
     <RepositoryInfo key={repo.id} repository={repo} />
   );
 
-  const ItemSeparator = () => {
-    return <View style={styles.ItemSeparator} />;
-  };
-
   return (
     <FlatList
       style={styles.container}
       data={repositories}
-      ItemSeparatorComponent={ItemSeparator}
+      ItemSeparatorComponent={() => <ItemSeparator height={12}/>}
       renderItem={renderRepositoryItem}
     />
   );
@@ -81,8 +75,8 @@ export const RepositoryList = () => {
           selectedValue={orderByValue}
           onValueChange={setOrderByValue}>
           <Picker.Item label='Latest repositories' value='CREATED_AT' />
-          <Picker.Item label='Highest rated repositories' value='RATING_AVERAGE' />
-          <Picker.Item label='Lowest rated repositories' value='RATING_AVERAGE_DESC' />
+          <Picker.Item label='Highest rated repositories' value='RATING_AVERAGE_DESC' />
+          <Picker.Item label='Lowest rated repositories' value='RATING_AVERAGE' />
         </Picker>
       </View>
       <RepositoryListContainer repositories={data} />
