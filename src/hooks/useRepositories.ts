@@ -10,10 +10,25 @@ interface ApiResponse {
   };
 }
 
-export const useRepositories = () => {
-  const { data, error, loading } = useQuery<ApiResponse>(GET_REPOSITORIES);
+export type orderByValue = "CREATED_AT" | "RATING_AVERAGE" | "RATING_AVERAGE_DESC";
 
-  const repositories = data?.repositories?.edges.map((edge) => edge.node);
+export const useRepositories = (orderByValue?: orderByValue) => {
+  let orderBy = "CREATED_AT";
+  let orderDirection: "ASC" | "DESC" = "ASC";
+
+  if (orderByValue === "RATING_AVERAGE" || orderByValue === "RATING_AVERAGE_DESC") {
+    orderBy = "RATING_AVERAGE";
+    orderDirection = orderByValue === "RATING_AVERAGE_DESC" ? "DESC" : "ASC";
+  }
+
+  const { data, error, loading } = useQuery<ApiResponse>(GET_REPOSITORIES, {
+    variables: {
+      orderBy,
+      orderDirection,
+    },
+  });
+
+  const repositories = data?.repositories?.edges?.map(({ node }) => node);
 
   return { data: repositories, error, loading };
 };
