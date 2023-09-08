@@ -3,19 +3,13 @@ import { useNavigate } from "react-router-native";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useSignIn } from "../../hooks/useSignIn";
-import { MainButton, Text, FormikTextInput } from "../UI";
+import { MainButton, Title, FormikTextInput } from "../UI";
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
     paddingVertical: "20%",
     backgroundColor: "white",
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
   },
   formContainer: {
     gap: 10,
@@ -40,7 +34,7 @@ export const SignIn = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign in</Text>
+      <Title>Sign in</Title>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

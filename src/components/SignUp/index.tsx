@@ -4,19 +4,13 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useSignIn } from "../../hooks/useSignIn";
 import { useSignUp } from "../../hooks/useSignUp";
-import { MainButton, Text, FormikTextInput } from "../UI";
+import { MainButton, FormikTextInput, Title } from "../UI";
 
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 15,
     paddingVertical: "20%",
     backgroundColor: "white",
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
   },
   formContainer: {
     gap: 10,
@@ -65,7 +59,7 @@ export const SignUp = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Title>Sign Up</Title>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}

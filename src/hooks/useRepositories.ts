@@ -12,7 +12,7 @@ interface ApiResponse {
 
 export type orderByValue = "CREATED_AT" | "RATING_AVERAGE" | "RATING_AVERAGE_DESC";
 
-export const useRepositories = (orderByValue?: orderByValue) => {
+export const useRepositories = (orderByValue?: orderByValue, searchKeyword?: string) => {
   let orderBy = "CREATED_AT";
   let orderDirection: "ASC" | "DESC" = "ASC";
 
@@ -25,6 +25,7 @@ export const useRepositories = (orderByValue?: orderByValue) => {
     variables: {
       orderBy,
       orderDirection,
+      searchKeyword,
     },
   });
 

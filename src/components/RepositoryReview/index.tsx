@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-native";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useCreateReview, ReviewProps } from "../../hooks/useCreateReview";
-import { FormikTextInput, MainButton, Text } from "../UI";
+import { FormikTextInput, MainButton, Title } from "../UI";
 
 const styles = StyleSheet.create({
   container: {
@@ -13,12 +13,6 @@ const styles = StyleSheet.create({
   },
   formContainer: {
     gap: 10,
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 35,
-    fontWeight: "bold",
-    textAlign: "center",
   },
 });
 
@@ -47,7 +41,7 @@ export const CreateReview = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Create a review</Text>
+      <Title>Create a review</Title>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
