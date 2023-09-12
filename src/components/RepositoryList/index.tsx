@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import { RepositoryInfo } from "./RepositoryInfo";
 import { useRepositories, orderByValue } from "../../hooks/useRepositories";
-import type { Repository } from "../../types";
+import type { Repository } from "../../lib/types";
 import { Picker } from "@react-native-picker/picker";
 import { useDebounce } from "use-debounce";
 import { ItemSeparator } from "../UI";

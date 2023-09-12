@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_CURRENT_USER } from "../graphql/queries";
-import { Review } from "../types";
+import { Review } from "../lib/types";
 
 interface ApiResponse {
   me: {

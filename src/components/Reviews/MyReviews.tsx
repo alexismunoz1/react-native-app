@@ -4,7 +4,7 @@ import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { useDeleteReview } from "../../hooks/useDeleteReview";
 import { ItemSeparator, MainButton, Title } from "../UI";
 import { ReviewItem } from "./ReviewItem";
-import type { Review } from "../../types";
+import type { Review } from "../../lib/types";
 
 const styles = StyleSheet.create({
   container: {

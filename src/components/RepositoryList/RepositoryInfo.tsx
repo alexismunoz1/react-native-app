@@ -2,8 +2,8 @@ import { View, Image, StyleSheet } from "react-native";
 import { Link } from "react-router-native";
 import * as Linking from "expo-linking";
 import { Text, MainButton, TextStatsCount } from "../UI";
-import { theme } from "../../theme";
-import type { Repository } from "../../types";
+import { theme } from "../../lib/theme";
+import type { Repository } from "../../lib/types";
 
 const styles = StyleSheet.create({
   containter: {

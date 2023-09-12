@@ -1,8 +1,8 @@
 import { View, StyleSheet } from "react-native";
 import { format } from "date-fns";
 import { Text } from "../UI";
-import { theme } from "../../theme";
-import type { Review } from "../../types";
+import { theme } from "../../lib/theme";
+import type { Review } from "../../lib/types";
 
 const styles = StyleSheet.create({
   container: {

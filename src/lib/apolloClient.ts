@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import Constants from "expo-constants";
 import { setContext } from "@apollo/client/link/context";
-import { AuthStorage } from "./authStorage";
+import { AuthStorage } from "../contexts/authStorage";
 
 const { apolloUri } = Constants.expoConfig.extra;
 

@@ -5,7 +5,7 @@ import { ReviewItem } from "../Reviews/ReviewItem";
 import { RepositoryInfo } from "./RepositoryInfo";
 import { useGetReviews } from "../../hooks/useGetReviews";
 import { useGetRepository } from "../../hooks/useGetRepository";
-import { Review } from "../../types";
+import { Review } from "../../lib/types";
 
 export const SingleRepository = () => {
   const { id } = useParams();

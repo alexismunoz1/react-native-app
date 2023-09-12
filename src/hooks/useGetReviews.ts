@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_REVIEWS } from "../graphql/queries";
-import type { Review } from "../types";
+import type { Review } from "../lib/types";
 
 interface ApiResponse {
   repository: {

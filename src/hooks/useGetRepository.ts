@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_REPOSITORY } from "../graphql/queries";
-import type { Repository } from "../types";
+import type { Repository } from "../lib/types";
 
 interface ApiResponse {
   repository: Repository;
