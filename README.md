@@ -20,7 +20,14 @@
 
 ![465shots_so](https://github.com/alexismunoz1/repository-list-app/assets/77214476/ecfc60a2-219d-4c78-843f-b3e8f0dc9981)
 
+## api
 
-api
+For our server we can clone this repository which is a graphQL api to simulate our backend and consume the repositories.
+The rate-repository-api server meets all the API needs of the application.
+It uses SQLite database which doesn't need any setup and provides an Apollo GraphQL API along with a few REST API endpoints.
+
+set up the rate-repository-api server by following the setup instructions in the repository's README. Note that if you are using an emulator for development it is recommended to run the server and the emulator on the same computer. This eases network requests considerably.
+
+[https://github.com/fullstack-hy2020/rate-repository-api](https://github.com/fullstack-hy2020/rate-repository-api)
 
 .env.example
