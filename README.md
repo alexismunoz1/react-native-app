@@ -36,6 +36,8 @@ set up the rate-repository-api server by following the setup instructions in the
 
 The rate-repository-api server provides an endpoint for returning a paginated list of reviewed repositories. Once the server is running, you should be able to access the endpoint at http://localhost:5000/api/repositories (unless you have changed the port). The data is paginated in a common [cursor based pagination format](https://graphql.org/learn/pagination/). The actual repository data is behind the node key in the edges array.
 
+![26new](https://github.com/alexismunoz1/repository-list-app/assets/77214476/09522ed4-f521-48c8-a809-07d313c9b0a5)
+
 Unfortunately, we can't access the server directly in our application by using the http://localhost:5000/api/repositories URL. To make a request to this endpoint in our application we need to access the server using its IP address in its local network. To find out what it is, open the Expo development tools by running `npm start`. In the console you should be able to see an URL starting with exp:// below the QR code, after the "Metro waiting on" text:
 
 Copy the IP address between the exp:// and :, which is in this example 192.168.1.33. Construct an URL in format http://<IP_ADDRESS>:5000/api/repositories and open it in the browser. You should see the same response as you did with the localhost URL.
