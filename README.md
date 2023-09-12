@@ -14,7 +14,7 @@
 
 #### With this application you can see a list of repositories, filter by category and search by name.
 
-![527shots_so](https://github.com/alexismunoz1/repository-list-app/assets/77214476/f03f4d43-e5e2-4be0-ac3a-9b4f2e337015)
+<img src="https://github.com/alexismunoz1/repository-list-app/raw/main/Screenshot%20from%202023-09-09%2015-19-08.png" style="border-radius: 5px">
 
 #### You can also create and delete reviews
 
